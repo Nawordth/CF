@@ -5,8 +5,6 @@ node{
   
 
   stage("Deploy") {
-                    sh "export ANSIBLE_HOST_KEY_CHECKING=False"
-                    sh "chmod +x ./ec2.py"
-                    sh "ansible-playbook playbook1.yml -i ./ec2.py --limit 'tag_Network_Public'"
+                    sh "aws cloudformation create-stack --stack-name myteststack --template-body file://sampletemplate.json --parameters ParameterKey=KeyPairName,ParameterValue=Devops ParameterKey=SubnetIDs,ParameterValue=SubnetID1\\,SubnetID2"
   }
 }
