@@ -5,6 +5,6 @@ node{
   
 
   stage("Deploy") {
-                    sh "aws cloudformation create-stack --stack-name myteststack --template-body file://sampletemplate.json --parameters ParameterKey=KeyPairName,ParameterValue=Devops ParameterKey=SubnetIDs,ParameterValue=SubnetID1\\,SubnetID2"
+                    sh "aws cloudformation create-stack --stack-name myteststack --template-body file://sampletemplate.json --parameters ParameterKey=KeyName,ParameterValue=Devops ParameterKey=SSHLocation,ParameterValue=0.0.0.0/0 ParameterKey=WebServerCount,ParameterValue=2 ParameterKey=WebServerInstanceType,ParameterValue=t2.small"
   }
 }
