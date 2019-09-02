@@ -7,8 +7,7 @@ node{
   stage("Execute") {
                     sh '''
                     set +x
-                    sudo aws configure set aws_secret_access_key ${AWS_SECRET_ACCESS_KEY}
-                    
+                    sudo aws configure set aws_secret_access_key ${AWS_SECRET_ACCESS_KEY}       
                     set -x 
                 '''
     sh "sudo aws configure set aws_access_key_id ${AWS_ACCESS_KEY_ID}"
