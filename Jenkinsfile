@@ -20,8 +20,7 @@ node{
     if ( "${OPTION}" == 'update-stack') {
     sh "sudo aws cloudformation ${OPTION} --stack-name myteststack --template-body file://VPC_AutoScaling_With_Public_IPs4.txt --parameters ParameterKey=KeyName,ParameterValue=devops ParameterKey=SSHLocation,ParameterValue=0.0.0.0/0 ParameterKey=WebServerCount,ParameterValue=${SERVER_COUNT} ParameterKey=WebServerInstanceType,ParameterValue=t2.small"
     sh "sudo aws cloudformation wait stack-update-complete --stack-name myteststack"
-    URL = sh "sudo aws cloudformation describe-stacks --stack-name myteststack --query 'Stacks[0].Outputs[0].OutputValue' --output text"
-    sh "echo $URL"
+    sh "sudo aws cloudformation describe-stacks --stack-name myteststack --query 'Stacks[0].Outputs[0].OutputValue' --output text"
     }
     }
 }
