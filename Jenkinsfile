@@ -8,7 +8,7 @@ node{
     sh "sudo aws configure set aws_access_key_id ${AWS_ACCESS_KEY_ID}"
     sh "sudo aws configure set aws_secret_access_key ${AWS_SECRET_ACCESS_KEY}"
     sh "sudo aws configure set default.region ${AWS_REGION}"
-    if (${OPTION} == 'delete-stack') {
+    if ( "${OPTION}" == 'delete-stack') {
     sh "sudo aws cloudformation delete-stack --stack-name myteststack"
     }
     else {
